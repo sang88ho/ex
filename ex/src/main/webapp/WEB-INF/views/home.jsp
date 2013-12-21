@@ -2,21 +2,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page session="false" %>
+
+
+
+
 <html>
 <head>
 	<title>Home</title>
 </head>
 <body>
-	<table class="tbl-type-1 txt-c mb20 ui-set-tbl-type" border="1" cellspacing="0"
-		summary="통화코드, 국가명, 송금, 현찰, 매매기준율, 대미환산율, 날짜, 보내실때, 받으실때, 사실때, 파실때 제공">
+
+
+	<table align=center class="tbl-type-1 txt-c mb20 ui-set-tbl-type" border="1" cellspacing="0"
+		summary="은행, 통화코드, 국가명, 송금, 현찰, 매매기준율, 대미환산율, 날짜, 보내실때, 받으실때, 사실때, 파실때 제공">
 		<caption>일별환율 조회결과</caption>
 		<colgroup>
-			<col width="8%">
+			<col width="6%">
 			<col width="12%">
 			<col span="8">
 		</colgroup>
 		<thead>
 			<tr>
+				<th scope="col" rowspan="2">은행</th>
 				<th scope="col" rowspan="2">통화코드</th>
 				<th scope="col" rowspan="2">국가명</th>
 				<th scope="colgroup" colspan="2" class="col">송금</th>
@@ -35,6 +42,14 @@
 		<tbody>
 			<c:forEach var="exchange" items="${exchanges}" >
 			<tr>
+
+				<c:if test = "${exchange.bank == 'shinhan'}">
+					<td><img src="/image/shinhan.jpg"</td>
+				</c:if>
+				<c:if test = "${exchange.bank == 'woori'}">
+					<td><img src="image/woori.jpg"</td>
+				</c:if>
+
 				<td>${exchange.monetaryCode}</td>
 				<td>${exchange.nation}</td>
 				<td>${exchange.transferSend}</td>

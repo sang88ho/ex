@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import sogang.ip.ex.exchange.Exchange;
+import sogang.ip.ex.exchange.ExchangeFinder;
 import sogang.ip.ex.exchange.ExchangeRepository;
 
 /**
@@ -19,6 +20,10 @@ import sogang.ip.ex.exchange.ExchangeRepository;
  */
 @Controller
 public class HomeController {
+	
+	// 추가 //
+	private ExchangeFinder finder;
+	// 추가 //
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -29,11 +34,16 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+	
+	
+	
 	public String home(Locale locale, Map<String, Object> map) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		List<Exchange> exchanges = repository.findAll();
+		
 		map.put("exchanges", exchanges);
+		//map.put("exchanges", finder.getList());
 		
 		return "/home";
 	}
