@@ -23,3 +23,4 @@
 <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/layout.css" />
 <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/account/signin.css" />
 <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/account/signup.css" />
+<link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/account/mypage.css" />

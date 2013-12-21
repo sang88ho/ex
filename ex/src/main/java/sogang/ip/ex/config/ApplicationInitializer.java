@@ -5,6 +5,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -47,7 +48,7 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { MainConfig.class, DataConfig.class };
+		return new Class[] { MainConfig.class, DataConfig.class, SecurityConfig.class };
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
 	
 	@Override
 	protected Filter[] getServletFilters() {
-//		DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy("springSecurityFilterChain");
+		DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy("springSecurityFilterChain");
 		
 		// Register Spring Social filter so that we can disconnect from providers
 		HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
@@ -72,7 +73,6 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
 		characterEncodingFilter.setEncoding("UTF-8");
 		characterEncodingFilter.setForceEncoding(true);
 
-//		return new Filter[] { delegatingFilterProxy, hiddenHttpMethodFilter, characterEncodingFilter };
-		return new Filter[] { hiddenHttpMethodFilter, characterEncodingFilter };
+		return new Filter[] { delegatingFilterProxy, hiddenHttpMethodFilter, characterEncodingFilter };
 	}
 }
