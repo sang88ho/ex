@@ -1,0 +1,12 @@
+#signin-wrapper {
+	width: 400px;
+	position: relative;
+	margin:auto;
+}
+
+#signin {
+	float: left;
+	padding: 20px;
+	position: relative;
+	width: 100%;
+}

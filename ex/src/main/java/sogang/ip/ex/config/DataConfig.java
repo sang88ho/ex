@@ -18,7 +18,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:spring.properties")
-@EnableJpaRepositories(basePackages={"sogang.ip.ex.exchange"})
+@EnableJpaRepositories(basePackages={"sogang.ip.ex.exchange", "sogang.ip.ex.account"})
 public class DataConfig extends WebMvcConfigurerAdapter {
 
 	@Autowired 

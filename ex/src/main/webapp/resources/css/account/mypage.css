@@ -1,0 +1,12 @@
+#mypage-wrapper {
+	width: 700px;
+	position: relative;
+	margin:auto;
+}
+
+#mypage {
+	float: left;
+	padding: 20px;
+	position: relative;
+	width: 100%;
+}

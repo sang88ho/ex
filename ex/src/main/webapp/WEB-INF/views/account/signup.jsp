@@ -6,11 +6,11 @@
 		<fieldset>
 			<legend>Sign up</legend>
 			<form class="form-horizontal" action="<c:url value="/signup"/>" method="post" role="form">
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }" />
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<div class="form-group">
 					<label for="inputEmail1" class="col-lg-3 control-label">Username</label>
 					<div class="col-lg-9">
-						<input type="text" name="username" class="form-control" id="inputEmail1" placeholder="Email">
+						<input type="text" name="username" class="form-control" id="inputEmail1" placeholder="Username">
 					</div>
 				</div>
 				<div class="form-group">
