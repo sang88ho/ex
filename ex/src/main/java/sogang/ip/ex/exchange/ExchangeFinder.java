@@ -55,8 +55,8 @@ public class ExchangeFinder {
 	    	//this.searchBank("woori");
 	    	//a = this.searchBank("shinhan");    	
 	    	//a = this.searchDate("2013", "12", "04");
-	    	//strTemp = findMaximum_NationAndDate(TransferType.CASH_SEND, "미국", "2013", "12", "05");
-	    	strTemp = searchMoneyCode("CNY");
+	    	strTemp = findMaximum_NationAndDate(TransferType.CASH_SEND, "미국", "2013", "12", "05");
+	    	//strTemp = searchMoneyCode("CNY");
 	    	
 	    	System.out.print(strTemp);
 	    }
@@ -234,7 +234,8 @@ public class ExchangeFinder {
 			exchangelist.add(exchange);			
 		}
 		
-		private void setExchangeFromMySQL() {
+		private void setExchangeFromMySQL() throws SQLException {
+			
 			exchange.setId(result.getInt(1));
 			exchange.setBank(result.getString(2));
 			exchange.setNation(result.getString(3));
@@ -244,13 +245,14 @@ public class ExchangeFinder {
 			exchange.setCashSend(result.getFloat(7));
 			exchange.setCashReceive(result.getFloat(8));
 			exchange.setSaleStandard(result.getFloat(9));
-			exchange.setUsdExchangeRate(result.getFloat(10));
+			exchange.setUsdExchangeRate(result.getFloat(10));		
+			
 			
 	    	int Year, Month, Day;
 	        Year = Integer.parseInt(result.getString(11).substring(0, 4));
 	        Month = Integer.parseInt(result.getString(11).substring(5, 7)); 
 	        Day = Integer.parseInt(result.getString(11).substring(8, 10));
-			Calendar date;
+			Calendar date = null;
 			date.set(Year, Month, Day);
 			exchange.setDate(date);		
 			
@@ -288,4 +290,4 @@ public class ExchangeFinder {
 		
 	}
 
-}
+

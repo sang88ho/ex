@@ -1,6 +1,5 @@
 package sogang.ip.ex.controller;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import sogang.ip.ex.exchange.Exchange;
 import sogang.ip.ex.exchange.ExchangeFinder;
 import sogang.ip.ex.exchange.ExchangeRepository;
 
@@ -40,10 +38,10 @@ public class HomeController {
 	public String home(Locale locale, Map<String, Object> map) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		List<Exchange> exchanges = repository.findAll();
+		//List<Exchange> exchanges = repository.findAll();
 		
-		map.put("exchanges", exchanges);
-		//map.put("exchanges", finder.getList());
+		//map.put("exchanges", exchanges);
+		map.put("exchanges", finder.getList());
 		
 		return "/home";
 	}
